@@ -1,5 +1,6 @@
 """Helper function to check if two breakpoints list are comparable."""
 
+
 class BadPartitions(Exception):
     """Exception raised when the partition is bad."""
 

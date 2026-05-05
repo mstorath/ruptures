@@ -22,7 +22,11 @@ repos:
   rev: v1.7.8 # v1.7.7 pulls untokenize 0.1.1 which fails to build on Python 3.14 (pre-commit.ci runner)
   hooks:
     - id: docformatter
-      exclude: mkdocs_macros.py
+      # docformatter v1.7.8 disagrees with black 25.x on the blank-line count
+      # after a module docstring before a top-level class. The two files below
+      # are the only ones in the repo where that pattern occurs (module
+      # docstring directly followed by a class with no imports in between).
+      exclude: '^(mkdocs_macros\.py|src/ruptures/exceptions\.py|src/ruptures/metrics/sanity_check\.py)$'
       args: [--in-place]
 - repo: https://github.com/PyCQA/flake8
   rev: 7.3.0
