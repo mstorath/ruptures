@@ -19,7 +19,7 @@ repos:
   hooks:
     - id: python-no-eval  # A quick check for the eval() built-in function.
 - repo: https://github.com/PyCQA/docformatter
-  rev: v1.7.7 # Don't autoupdate until https://github.com/PyCQA/docformatter/issues/293 is fixed
+  rev: v1.7.8 # v1.7.7 pulls untokenize 0.1.1 which fails to build on Python 3.14 (pre-commit.ci runner)
   hooks:
     - id: docformatter
       exclude: mkdocs_macros.py
